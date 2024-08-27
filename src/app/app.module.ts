@@ -17,13 +17,15 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AddEditUserDialogComponent } from './components/modals/add-edit-user-dialog/add-edit-user-dialog.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
+import { DeleteUserDialogComponent } from './components/modals/delete-user-dialog/delete-user-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
     ClientsTableComponent,
-    AddEditUserDialogComponent
+    AddEditUserDialogComponent,
+    DeleteUserDialogComponent
   ],
   imports: [
     BrowserModule,

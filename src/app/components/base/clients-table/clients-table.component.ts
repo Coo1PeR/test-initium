@@ -8,6 +8,7 @@
   import { MatDialog } from "@angular/material/dialog";
   import { MatSnackBar } from "@angular/material/snack-bar";
   import { AddEditUserDialogComponent } from "../../modals/add-edit-user-dialog/add-edit-user-dialog.component";
+  import { DeleteUserDialogComponent } from "../../modals/delete-user-dialog/delete-user-dialog.component";
 
   @Component({
     selector: 'app-clients-table',
@@ -99,6 +100,33 @@
           });
         }
       });
+    }
+
+    // Open conformation dialog to delete users
+    openDeleteConfirmationDialog(): void {
+      const selectedRowsCount = this.selection.selected.length;
+      const dialogRef = this.dialog.open(DeleteUserDialogComponent, {
+        width: '400px',
+        data: { count: selectedRowsCount }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.deleteSelectedUsers();
+        }
+      });
+    }
+
+    // Method to delete selected users
+    deleteSelectedUsers(): void {
+      const selectedUsers = this.selection.selected;
+      selectedUsers.forEach(user => {
+        this.getUsersService.deleteUser(user.email).then(() => {
+          this.refreshTableData();
+        });
+      });
+
+      this.selection.clear();
     }
 
 

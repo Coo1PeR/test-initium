@@ -42,6 +42,7 @@ export class GetUsersService {
 
     // if DB is empty, fetch users
     if (users.length === 0) {
+      //TODO setTimeout
       const fetchedUsers = await this.fetchUsersFromAPI().toPromise();
 
       // if users is fetched, save them in indexedDB and return
@@ -62,8 +63,15 @@ export class GetUsersService {
     return from(this.getAllUsers());
   }
 
+  // Add and edit user
   async addUser(user: Users): Promise<void> {
     const db = await this.dbPromise;
     await db.put(STORE_NAME, user);
+  }
+
+  // Delete user
+  async deleteUser(email: string): Promise<void> {
+    const db = await this.dbPromise;
+    await db.delete(STORE_NAME, email);
   }
 }
