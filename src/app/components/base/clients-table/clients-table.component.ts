@@ -4,7 +4,7 @@
   import {SelectionModel} from "@angular/cdk/collections";
   import {MatSort} from "@angular/material/sort";
   import {GetUsersService} from "../../../core/services/get-users.service";
-  import {Observable} from "rxjs";
+  import { Observable } from "rxjs";
   import { MatDialog } from "@angular/material/dialog";
   import { MatSnackBar } from "@angular/material/snack-bar";
   import { AddEditUserDialogComponent } from "../../modals/add-edit-user-dialog/add-edit-user-dialog.component";
@@ -73,7 +73,7 @@
     openAddUserDialog(): void {
       const dialogRef = this.dialog.open(AddEditUserDialogComponent, {
         width: '448px',
-        data: {user: null} // null, так как создаем нового пользователя
+        data: {user: null}
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -84,6 +84,23 @@
         }
       });
     }
+
+    // Method to open the Edit User dialog
+    openEditUserDialog(user: Users): void {
+      const dialogRef = this.dialog.open(AddEditUserDialogComponent, {
+        width: '448px',
+        data: { user }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.getUsersService.addUser(result).then(() => {
+            this.refreshTableData();
+          });
+        }
+      });
+    }
+
 
     // Refresh data in table
     refreshTableData(): void {
