@@ -12,6 +12,8 @@ import {MatSortModule} from "@angular/material/sort";
 import {HttpClientModule} from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MatIconModule } from "@angular/material/icon";
     MatSortModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
