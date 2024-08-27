@@ -10,6 +10,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSortModule} from "@angular/material/sort";
 import {HttpClientModule} from "@angular/common/http";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatTableModule,
     MatCheckboxModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
