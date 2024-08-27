@@ -3,9 +3,6 @@ import {Users} from "../../../core/interfaces/users";
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 
-const initialSelection = [];
-const allowMultiSelect = true;
-
 const USERS: Users[] = [
   {
     "name": "Александр",
