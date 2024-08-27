@@ -14,12 +14,16 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { AddEditUserDialogComponent } from './components/modals/add-edit-user-dialog/add-edit-user-dialog.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
-    ClientsTableComponent
+    ClientsTableComponent,
+    AddEditUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
