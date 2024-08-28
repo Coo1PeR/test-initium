@@ -36,8 +36,6 @@
     }
 
     .mat-mdc-unelevated-button {
-      background-color: rgba(47, 103, 213, 1);
-
       &:hover {
         background-color: rgba(60, 124, 248, 1);
       }
@@ -88,6 +86,7 @@ html {
 
 .mat-sort-header-content {
   color: rgba(47, 76, 151, 1);
+  font-size: 12px;
 }
 
 
