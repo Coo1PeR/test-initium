@@ -18,16 +18,21 @@ export class GetUsersService {
     this.dbPromise = this.initDB();
   }
 
+  // init local indexedDB for users
   private async initDB() {
     return openDB(DB_NAME, 1, {
       upgrade(db) {
         if (!db.objectStoreNames.contains(STORE_NAME)) {
-          db.createObjectStore(STORE_NAME, {keyPath: 'email'});
+          db.createObjectStore(STORE_NAME, {
+            keyPath: 'id',
+            autoIncrement: true
+          });
         }
       },
     });
   }
 
+  // fetch users from api
   fetchUsersFromAPI(): Observable<Users[]> {
     return this.http.get<{ users: Users[] }>(this.URL)
       .pipe(
@@ -36,19 +41,20 @@ export class GetUsersService {
       );
   }
 
+  // get all users from local indexedDB
   async getAllUsers(): Promise<Users[]> {
     const db = await this.dbPromise;
     const users = await db.getAll(STORE_NAME);
 
     // if DB is empty, fetch users
     if (users.length === 0) {
-      //TODO setTimeout
       const fetchedUsers = await this.fetchUsersFromAPI().toPromise();
 
       // if users is fetched, save them in indexedDB and return
       if (fetchedUsers && fetchedUsers.length > 0) {
-        for (const user of fetchedUsers) {
-          await this.addUser(user);
+        for (let i = 0; i < fetchedUsers.length; i++) {
+          fetchedUsers[i].id = i + 1;
+          await this.addUser(fetchedUsers[i]);
         }
         return fetchedUsers;
       } else {
@@ -66,12 +72,18 @@ export class GetUsersService {
   // Add and edit user
   async addUser(user: Users): Promise<void> {
     const db = await this.dbPromise;
-    await db.put(STORE_NAME, user);
+    if (user.id) {
+      await db.put(STORE_NAME, user);
+    } else {
+      const users = await db.getAll(STORE_NAME);
+      user.id = users.length ? Math.max(...users.map(u => u.id)) + 1 : 1;
+      await db.add(STORE_NAME, user);
+    }
   }
 
   // Delete user
-  async deleteUser(email: string): Promise<void> {
+  async deleteUser(id: number): Promise<void> {
     const db = await this.dbPromise;
-    await db.delete(STORE_NAME, email);
+    await db.delete(STORE_NAME, id);
   }
 }

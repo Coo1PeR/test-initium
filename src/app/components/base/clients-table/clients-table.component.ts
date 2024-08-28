@@ -106,7 +106,8 @@
     openDeleteConfirmationDialog(): void {
       const selectedRowsCount = this.selection.selected.length;
       const dialogRef = this.dialog.open(DeleteUserDialogComponent, {
-        width: '400px',
+        width: '448px',
+        height: '300px',
         data: { count: selectedRowsCount }
       });
 
@@ -121,7 +122,7 @@
     deleteSelectedUsers(): void {
       const selectedUsers = this.selection.selected;
       selectedUsers.forEach(user => {
-        this.getUsersService.deleteUser(user.email).then(() => {
+        this.getUsersService.deleteUser(user.id!).then(() => {
           this.refreshTableData();
         });
       });
