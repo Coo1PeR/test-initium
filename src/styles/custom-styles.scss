@@ -70,6 +70,20 @@
   text-align: right;
 }
 
+.mat-accent {
+  --mat-option-selected-state-label-text-color: rgb(74, 149, 247);
+;
+}
+
+html {
+  --mdc-checkbox-selected-focus-icon-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-hover-icon-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-icon-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-pressed-icon-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-focus-state-layer-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-hover-state-layer-color: rgb(74, 149, 247);
+  --mdc-checkbox-selected-pressed-state-layer-color: rgb(74, 149, 247);
+}
 
 
 
