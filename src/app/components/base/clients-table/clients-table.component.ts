@@ -74,7 +74,8 @@
     openAddUserDialog(): void {
       const dialogRef = this.dialog.open(AddEditUserDialogComponent, {
         width: '448px',
-        data: {user: null}
+        data: {user: null},
+        panelClass: 'my-dialog'
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -90,7 +91,8 @@
     openEditUserDialog(user: Users): void {
       const dialogRef = this.dialog.open(AddEditUserDialogComponent, {
         width: '448px',
-        data: { user }
+        data: { user },
+        panelClass: 'my-dialog'
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -108,7 +110,8 @@
       const dialogRef = this.dialog.open(DeleteUserDialogComponent, {
         width: '448px',
         height: '300px',
-        data: { count: selectedRowsCount }
+        data: { count: selectedRowsCount },
+        panelClass: 'my-dialog'
       });
 
       dialogRef.afterClosed().subscribe(result => {
