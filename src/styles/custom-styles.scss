@@ -56,7 +56,8 @@
   padding: 0 12px;
 
   .button--icon {
-    color: rgba(168, 176, 191, 1);
+    color: rgba(48, 72, 121, 1);
+  ;
   }
 
   & :hover {
@@ -83,6 +84,10 @@ html {
   --mdc-checkbox-selected-focus-state-layer-color: rgb(74, 149, 247);
   --mdc-checkbox-selected-hover-state-layer-color: rgb(74, 149, 247);
   --mdc-checkbox-selected-pressed-state-layer-color: rgb(74, 149, 247);
+}
+
+.mat-sort-header-content {
+  color: rgba(47, 76, 151, 1);
 }
 
 

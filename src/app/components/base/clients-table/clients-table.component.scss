@@ -1,21 +1,30 @@
 table {
   table-layout: fixed;
   border-collapse: collapse;
+  border-radius: 20px;
+  overflow: hidden !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 .mat-column-select {
-  width: 18px;
+  width: 24px;
   padding: 0 0 0 16px
 }
 
 .mat-column-name {
-  width: 280px;
   padding: 0 16px 0 5px
 }
 
-.mat-column-surname, .mat-column-email, .mat-column-phone {
-  width: 280px;
+.mat-column-surname, .mat-column-email, .mat-column-phone, .mat-column-name {
+  width: 100px;
+  max-width: 280px !important;
+}
+
+.mat-column-phone {
+  padding-right: 200px;
 }
 
 .mat-column-email, .mat-column-phone {
@@ -24,7 +33,16 @@ table {
 
 ::ng-deep .mat-mdc-header-cell.mat-column-phone,
 ::ng-deep .mat-mdc-header-cell.mat-column-email {
-  .mat-sort-header-container  {
+  .mat-sort-header-container {
     flex-direction: row-reverse;
+  }
+}
+
+.mat-mdc-row {
+  &:hover {
+    color: rgb(49 100 203);
+    cursor: pointer;
+    text-decoration: underline;
+    background: rgb(246, 249, 255);
   }
 }
