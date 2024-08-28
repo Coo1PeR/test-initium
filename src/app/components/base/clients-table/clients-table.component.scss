@@ -1,0 +1,30 @@
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+
+.mat-column-select {
+  width: 18px;
+  padding: 0 0 0 16px
+}
+
+.mat-column-name {
+  width: 280px;
+  padding: 0 16px 0 5px
+}
+
+.mat-column-surname, .mat-column-email, .mat-column-phone {
+  width: 280px;
+}
+
+.mat-column-email, .mat-column-phone {
+  text-align: end;
+}
+
+::ng-deep .mat-mdc-header-cell.mat-column-phone,
+::ng-deep .mat-mdc-header-cell.mat-column-email {
+  .mat-sort-header-container  {
+    flex-direction: row-reverse;
+  }
+}
