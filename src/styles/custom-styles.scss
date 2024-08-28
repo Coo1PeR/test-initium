@@ -2,4 +2,79 @@
   .mat-mdc-dialog-container .mdc-dialog__surface {
     border-radius: 20px;
   }
+
+  .mdc-dialog__surface {
+    padding: 20px 40px;
+  }
+
+  .mdc-dialog__title {
+    padding: 0;
+  }
+
+  .mdc-dialog .mdc-dialog__content {
+    padding: 20px 0 0 0;
+  }
+
+  .button--container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0 15px 0;
+
+    button {
+      border-radius: 37px;
+      min-width: 109px;
+      min-height: 53px;
+    }
+
+    .mat-mdc-outlined-button.mat-primary {
+      --mdc-outlined-button-label-text-color: #ffffff;
+    }
+
+    .mat-mdc-outlined-button[disabled][disabled] {
+      --mdc-outlined-button-disabled-label-text-color: rgb(255 255 255);
+      --mdc-outlined-button-disabled-outline-color: rgba(47 103 213 15);
+    }
+
+    .mat-mdc-unelevated-button {
+      background-color: rgba(47, 103, 213, 1);
+
+      &:hover {
+        background-color: rgba(60, 124, 248, 1);
+      }
+
+      &:active {
+        background-color: rgba(25, 78, 182, 1);
+      }
+    }
+  }
 }
+
+
+.button--container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 12px;
+
+  .button--icon {
+    color: rgba(168, 176, 191, 1);
+  }
+
+  & :hover {
+    .button--icon {
+      color: rgba(48, 72, 121, 1);
+    }
+  }
+}
+
+.mat-mdc-form-field-error {
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+
