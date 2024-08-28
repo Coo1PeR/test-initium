@@ -5,11 +5,6 @@ import { BaseComponent } from "./components/base/base.component";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/base',
-    pathMatch: 'full'
-  },
-  {
-    path: 'base',
     component: BaseComponent,
     title: 'Клиенты',
   },
