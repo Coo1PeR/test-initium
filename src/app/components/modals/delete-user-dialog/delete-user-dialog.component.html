@@ -1,6 +1,10 @@
-<h2 mat-dialog-title>Удаление строк</h2>
-<p>Удалить выбранные строки ({{data.count}})?</p>
-<mat-dialog-actions align="end">
-  <button mat-button (click)="onCancelClick()">Отмена</button>
-  <button mat-button color="warn" (click)="onDeleteClick()">Удалить</button>
-</mat-dialog-actions>
+<div class="delete-dialog">
+  <div class="header">
+    <h2 mat-dialog-title>Удаление строк</h2>
+    <p>Удалить выбранные строки ({{ data.count }})?</p>
+  </div>
+  <mat-dialog-actions align="end" class="button--container">
+    <button mat-button color="primary" (click)="onCancelClick()">Отмена</button>
+    <button mat-flat-button color="primary" mat-stroked-button (click)="onDeleteClick()">Удалить</button>
+  </mat-dialog-actions>
+</div>
