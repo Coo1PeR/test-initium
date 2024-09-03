@@ -5,6 +5,6 @@
   </div>
   <mat-dialog-actions align="end" class="button--container">
     <button mat-button color="primary" (click)="onCancelClick()">Отмена</button>
-    <button mat-flat-button color="primary" mat-stroked-button (click)="onDeleteClick()">Удалить</button>
+    <button mat-flat-button color="primary" mat-stroked-button [disabled]="!data.count" (click)="onDeleteClick()">Удалить</button>
   </mat-dialog-actions>
 </div>
